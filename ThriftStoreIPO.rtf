@@ -10,11 +10,11 @@ OUTPUT
 7 Discount amounts + discounted prices
 
 ALGORITHM
-1) User enters item original price (itemPrice)
-2) Program calculates a 10% discount
-3) Program repeats adding 5% to the discount until the discount reaches 40%
-4) Program displays all 7 discounts and prices
-5) End Program
+1) User enters item original price (itemPrice).
+2) Repeat for (discountRate from 10% to 40% in increments of 5%).
+3) Calculate price by multiplying the item price by rate and subtract the total from price.
+4) Display all 7 discounts and prices.
+5) End Program.
 
 C++ PROGRAMMING
 
@@ -25,5 +25,20 @@ using namespace std;
 
 int main()
 {
+    double itemPrice = 0.0;
+    double discountPrice = 0.0;
+    double discountAmt = 0.0;
 
+    cout << "Item Price: ";
+    cin >> itemPrice;
+
+    for (double rate = 0.1;
+    rate <= 0.4; rate += 0.05)
+    {
+        discountAmt = itemPrice * rate;
+        discountPrice = itemPrice - discountAmt;
+
+        cout << rate * 100 << "% discount: ";
+        cout << "$" << discountPrice << endl;
+    } //end for
 }
